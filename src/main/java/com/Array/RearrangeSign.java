@@ -14,7 +14,7 @@ public class RearrangeSign {
 
         int[] arr = stringtoArray(input);
 
-       // System.out.println(Arrays.toString(rearrange(arr)));
+       System.out.println(Arrays.toString(rearrangeNumber(arr)));
     }
 
 //    public static int[] rearrange(int[] arr){
