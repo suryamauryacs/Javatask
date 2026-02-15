@@ -6,7 +6,7 @@ public class Camera {
         System.out.println("clicked..");
     }
 
-    public void powerOn(){
-        System.out.println("Camera power on");
-    }
+//    public void powerOn(){
+//        System.out.println("Camera power on");
+//    }
 }
