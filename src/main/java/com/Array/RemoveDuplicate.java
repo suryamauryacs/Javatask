@@ -20,12 +20,9 @@ public class RemoveDuplicate {
         if(s == null){
             return new int[0];
         }
-
         s = s.replace("[","").replace("]","").trim();
-
         if(s.isEmpty())
             return new int[0];
-
         return Arrays.stream(s.split(",")).map(String::trim).mapToInt(Integer::parseInt).toArray();
     }
 

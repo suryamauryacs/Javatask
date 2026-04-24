@@ -55,12 +55,10 @@ public class RepetitonInArray2 {
     public static String findDuplicate(int[] arr){
         Set<Integer> seen = new HashSet<>();
         Set<Integer> dup = new LinkedHashSet<>();
-
         for(int x : arr){
             if(!seen.add(x)){
                 dup.add(x);
             }
-
         }
 
         if(dup.isEmpty()){
