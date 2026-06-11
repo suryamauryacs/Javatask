@@ -1,5 +1,6 @@
 package PlacementStream;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -19,4 +20,11 @@ public class DuplicateNo {
 
         System.out.println(dup);
     }
+
+//    public static int[] duplicate(int[] arr){
+//        Set<Integer> dup = new HashSet<>();
+//
+//        dup = Arrays.stream(arr).filter(i -> Collections.frequency(arr, i) > 1).collect(Coll)
+//    }
+
 }
