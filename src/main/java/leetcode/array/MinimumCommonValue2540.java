@@ -16,7 +16,9 @@ package leetcode.array;
 //Explanation: There are two common elements in the array 2 and 3 out of which 2 is the smallest, so 2 is returned.
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 //  nums1 = [1,2,3], nums2 = [2,4]
 //a = [1,2,3], b = [2,4]
@@ -35,8 +37,35 @@ public class MinimumCommonValue2540 {
         System.out.println("The array is arr2 " + Arrays.toString(arr2));
 
         System.out.println(getCommon(arr1, arr2));
+        System.out.println(getcommonbru(arr1,arr2));
+        System.out.println(getcommondoptimal(arr1, arr2));
 
+    }
 
+    public static int getcommondoptimal(int[] arr1, int[] arr2){
+        Set<Integer> set = new HashSet<>();
+        for(int n : arr1){
+            set.add(n);
+        }
+        for(int n : arr2){
+            if(set.contains(n)){
+                return n;
+            }
+        }
+
+        return -1;
+    }
+
+    public static int getcommonbru(int[] arr1, int[] arr2){
+        for(int i = 0;i<arr1.length;i++){
+            for(int j = 0;j<arr2.length;i++){
+                if(arr1[i] == arr2[j]){
+                    return arr1[i];
+                }
+
+            }
+        }
+        return -1;
     }
 
     public static int getCommon(int[] nums1, int[] nums2) {
