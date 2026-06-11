@@ -47,6 +47,7 @@ public class MoveSing {
 
     }
 
+
     public static int[] moveTosings(int[] arr){
         ArrayList<Integer> pos = new ArrayList<>();
         ArrayList<Integer> neg = new ArrayList<>();
