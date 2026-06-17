@@ -44,8 +44,29 @@ public class SortArrayByParity905 {
         int[] arr = strToarr(input);
 
         System.out.println(Arrays.toString(sortArrayByParity(arr)));
+        System.out.println(Arrays.toString(sortArrayByParityOtimal(arr)));
 
 
+
+    }
+
+    public static int[] sortArrayByParityOtimal(int[] nums) {
+        int left=0, right = nums.length-1;
+
+        while(left < right){
+            if(nums[left] % 2 > nums[right] % 2){
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+            }
+
+            if(nums[left] % 2 == 0)
+                left++;
+            if(nums[right] % 2 == 1)
+                right--;
+        }
+
+        return nums;
     }
 
     public static int[] sortArrayByParity(int[] arr){
