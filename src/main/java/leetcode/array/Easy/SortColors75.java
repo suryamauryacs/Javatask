@@ -47,12 +47,39 @@ public class SortColors75 {
 
         System.out.println(Arrays.toString(sortColors(arr)));
         System.out.println(Arrays.toString(sortColorsBrute(arr)));
+        System.out.println(Arrays.toString(sortColorsDutch(arr)));
 
 
     }
 
     public static int[] sortColorsBrute(int[] nums) {
         Arrays.sort(nums);
+        return nums;
+    }
+    public static void swap(int[] nums , int i , int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+
+    }
+
+    public static int[] sortColorsDutch(int[] nums) {
+        int low = 0, mid = 0, high = nums.length-1;
+
+        while(mid <= high){
+            if(nums[mid] == 0){
+                swap(nums, low, mid);
+                low++;
+                mid++;
+            }
+            else if(nums[mid] == 1){
+                mid++;
+            } else{
+                swap(nums, mid, high);
+                high--;
+            }
+        }
+
         return nums;
     }
 
