@@ -37,6 +37,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class SortColors75 {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Array like : [1,2,3}");
@@ -45,7 +46,14 @@ public class SortColors75 {
         int[] arr = strToarr(input);
 
         System.out.println(Arrays.toString(sortColors(arr)));
+        System.out.println(Arrays.toString(sortColorsBrute(arr)));
 
+
+    }
+
+    public static int[] sortColorsBrute(int[] nums) {
+        Arrays.sort(nums);
+        return nums;
     }
 
     public static int[] sortColors(int[] nums) {
