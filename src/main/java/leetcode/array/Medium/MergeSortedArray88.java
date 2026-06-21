@@ -1,4 +1,6 @@
 package leetcode.array.Medium;
+
+
 //88. Merge Sorted Array
 //Solved
 //Easy
@@ -59,35 +61,23 @@ public class MergeSortedArray88 {
 
         System.out.println(Arrays.toString(merge(nums1,m, nums2, n)));
     }
-
-
     public static int extractInt(String s, String label) {
-        int labelPos = s.indexOf(label);
-        int eqpos = s.indexOf("=", labelPos);
+            int labelPos = s.indexOf(label);
+            int eqpos = s.indexOf("=", labelPos);
 
-        int comma = s.indexOf(",", eqpos);
-        if (comma == -1) comma = s.length();
+            // move forward safely skipping spaces
+            int start = eqpos + 1;
+            while (start < s.length() && s.charAt(start) == ' ') {
+                start++;
+            }
 
-        return Integer.parseInt(
-                s.substring(eqpos + 1, comma).trim()
-        );
-    }
+            int end = start;
+            while (end < s.length() && Character.isDigit(s.charAt(end))) {
+                end++;
+            }
 
-
-    public static int[] strToArrays(String s, String nums1){
-        if(s == null)
-            return new int[0];
-
-        s = s.replace("[","").replace("]","").trim();
-
-        if(s.isEmpty())
-            return new int[0];
-
-        return Arrays.stream(s.split(",")).map(String::trim).mapToInt(Integer::parseInt).toArray();
-
-
-
-    }
+            return Integer.parseInt(s.substring(start, end));
+        }
 
     public static int[] merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m-1;
@@ -107,5 +97,26 @@ public class MergeSortedArray88 {
         }
         return nums1;
     }
+
+
+    public static int[] strToArrays(String s, String label) {
+        int labelPos = s.indexOf(label);
+        int eqpos = s.indexOf("=", labelPos);
+        int lbPos = s.indexOf('[', eqpos);
+        int rbPos = s.indexOf(']', lbPos);
+
+        String inside = s.substring(lbPos + 1, rbPos);
+
+        if (inside.trim().isEmpty())
+            return new int[0];
+
+        return Arrays.stream(inside.split(","))
+                .map(String::trim)
+                .mapToInt(Integer::parseInt)
+                .toArray();
+    }
+    
+
+
 
 }
