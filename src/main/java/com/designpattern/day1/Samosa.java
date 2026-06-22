@@ -1,6 +1,17 @@
 package com.designpattern.day1;
 
-public class Samosa {
+//public enum Samosa{
+//    INSTANCE;
+//
+//    public void test(){
+//        System.out.println("Test method");
+//    }
+//}
+
+import java.io.Serializable;
+
+public class Samosa implements Serializable, Cloneable {
+
 
     private static Samosa samosa;
 
@@ -9,17 +20,47 @@ public class Samosa {
 
 
     private Samosa(){
-
+//        if(samosa != null){
+//            throw new RuntimeException("you are trying to break single pattern");
+//        }
     }
 
-    public static Samosa getSomosa(){
+//    //Lazy way of Creating single object
+//    public static Samosa getSomosa(){
+//        // object of this class
+//        if(samosa == null){
+//            samosa = new Samosa();
+//        }
+//
+//        return samosa;
+//    }
+//
+
+    //Lazy way of Creating single object
+    public  static Samosa getSomosa(){
         // object of this class
         if(samosa == null){
-            samosa = new Samosa();
+            synchronized (Samosa.class){
+                if(samosa == null){
+                    samosa = new Samosa();
+
+                }
+            }
         }
 
         return samosa;
     }
+
+
+    public Object readResolve(){
+        return samosa;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
+
 
 }
 
