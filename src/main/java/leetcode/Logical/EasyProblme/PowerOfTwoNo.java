@@ -1,8 +1,9 @@
-package leetcode.Logical.easy;
+package leetcode.Logical.EasyProblme;
 
 import java.util.Scanner;
 
-public class PowerfTwo {
+public class PowerOfTwoNo {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -32,8 +33,16 @@ public class PowerfTwo {
         }
     }
 
-    public boolean isPowerOfTwos(int n) {
+    public boolean isPowerOfTwos₹(int n) {
         return n > 0 && ( n & (n-1)) == 0;
+    }
+
+    public boolean isPowerOfTwoss(int n) {
+        if(n == 1)
+            return true;
+        if(n <= 0 || n % 2 !=0)
+            return false;
+        return isPowerOfTwo(n/2);
     }
 
 }
