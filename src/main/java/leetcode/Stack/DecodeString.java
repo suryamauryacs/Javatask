@@ -24,7 +24,10 @@ public class DecodeString {
         for(char c : s.toCharArray()){
             if(Character.isDigit(c)){
                 k = k + 10 + (c - '0');
-
+            }
+            else if(c == '[')
+                {
+                    countStack.push(k);
             }
         }
 
