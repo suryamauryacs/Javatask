@@ -28,6 +28,9 @@ public class DecodeString {
             else if(c == '[')
                 {
                     countStack.push(k);
+                    strStack.push(current);
+                    k = 0;
+                    current = new StringBuilder();
             }
         }
 
