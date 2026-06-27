@@ -33,6 +33,6 @@ public class DecodeString {
                     current = new StringBuilder();
             }
         }
-
+        return current;
     }
 }
