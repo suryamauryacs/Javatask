@@ -23,7 +23,7 @@ public class DecodeString {
         StringBuilder current = new StringBuilder();
         for(char c : s.toCharArray()){
             if(Character.isDigit(c)){
-                k = k + 10 + (c - '0');
+                k = k * 10 + (c - '0');
             }
             else if(c == '[')
                 {
@@ -32,7 +32,12 @@ public class DecodeString {
                     k = 0;
                     current = new StringBuilder();
             }
+            else{
+                current.append(c);
+            }
+
         }
-        return current;
+        return current.toString();
+
     }
 }
