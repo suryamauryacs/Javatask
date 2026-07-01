@@ -44,6 +44,8 @@ public class CheckBalancedString3340 {
 
         System.out.println(isBalanced(str));
 
+        System.out.println(isBalancedStream(str));
+
 
     }
 
@@ -61,5 +63,10 @@ public class CheckBalancedString3340 {
 
         return even_sum == odd_sum;
 
+    }
+
+    public static boolean isBalancedStream(String num){
+        return  java.util.stream.IntStream.range(0, num.length())
+                .map( i -> (i % 2 == 0 ? 1 : -1) * (num.charAt(i) - '0')).sum() == 0;
     }
 }
