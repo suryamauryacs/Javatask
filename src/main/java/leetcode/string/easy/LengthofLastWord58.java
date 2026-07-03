@@ -44,6 +44,8 @@ public class LengthofLastWord58 {
         String str = sc.nextLine();
 
         System.out.println(lengthOfLastWord(str));
+
+        System.out.println(lengthOfLastWords(str));
     }
 
     public static int lengthOfLastWord(String s) {
@@ -57,5 +59,15 @@ public class LengthofLastWord58 {
             }
         }
         return count;
+    }
+
+    public static int lengthOfLastWords(String s) {
+        s = s.trim();
+        int len = 0;
+        for(int i = s.length()-1; i>=0 && s.charAt(i) != ' ' ;i--){
+            len++;
+        }
+
+        return len;
     }
 }
