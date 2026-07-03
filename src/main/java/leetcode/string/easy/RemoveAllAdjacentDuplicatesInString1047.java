@@ -1,4 +1,6 @@
 package leetcode.string.easy;
+//https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/description/
+
 
 //1047. Remove All Adjacent Duplicates In String
 //Easy
@@ -32,7 +34,15 @@ package leetcode.string.easy;
 //s consists of lowercase English letters.
 //
 
+import java.util.Scanner;
+
 public class RemoveAllAdjacentDuplicatesInString1047 {
-    psvm
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the String: ");
+        String input = sc.nextLine();
+
+
+    }
 
 }
