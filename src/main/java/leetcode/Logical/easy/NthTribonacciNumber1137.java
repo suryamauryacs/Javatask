@@ -1,4 +1,4 @@
-package leetcode.Logical.easy;
+//package leetcode.Logical.easy;
 //https://leetcode.com/problems/n-th-tribonacci-number/description/
 
 // 1137. N-th Tribonacci Number
@@ -32,8 +32,8 @@ package leetcode.Logical.easy;
 //
 //0 <= n <= 37
 //The answer is guaranteed to fit within a 32-bit integer, ie. answer <= 2^31 - 1.
-public class NthTribonacciNumber1137 {
-    public static void main(String[] args) {
-
-    }
-}
+//public class NthTribonacciNumber1137 {
+//    public static void main(String[] args) {
+//
+//    }
+//}
