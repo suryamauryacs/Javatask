@@ -32,9 +32,11 @@ package leetcode.string.medium;
 //Explanation: "anagram" and "mangaar" are anagrams.
 
 
+import java.util.Scanner;
+
 public class MinimumNumberofStepstoMakeTwoStringsAnagram1347 {
     public static void main(String[] args) {
-
+        Scanner sc = new Scanner(System.in);
     }
 
     public int minSteps(String s, String t) {
