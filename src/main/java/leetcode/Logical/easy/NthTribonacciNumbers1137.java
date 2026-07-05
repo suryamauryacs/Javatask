@@ -1,4 +1,4 @@
-package leetcode.Logical.easy;
+//package leetcode.Logical.easy;
 ////package leetcode.Logical.easy;
 ////https://leetcode.com/problems/n-th-tribonacci-number/description/
 //
@@ -47,6 +47,36 @@ public class NthTribonacciNumbers1137 {
         System.out.println("Enter the Number : ");
         int n = sc.nextInt();
 
+        System.out.println(tribonacci(n));
 
+
+    }
+
+    public static int tribonacci(int n) {
+        int fourTerm = 0;
+
+        if(n == 0){
+            return 0;
+        }else if(n == 1 || n == 2){
+            return 1;
+        } else{
+            int firstTerm = 0;
+            int secondTerm = 1;
+            int thirtdTerm = 1;
+
+
+            for(int i = 2; i<n;i++){
+                fourTerm = firstTerm + secondTerm + thirtdTerm;
+
+                firstTerm = secondTerm;
+                secondTerm = thirtdTerm;
+                thirtdTerm = fourTerm;
+
+
+
+            }
+
+        }
+        return fourTerm;
     }
 }
