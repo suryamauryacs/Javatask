@@ -37,6 +37,9 @@ import java.util.Scanner;
 public class MinimumNumberofStepstoMakeTwoStringsAnagram1347 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println();
+
+        System.out.println(minSteps(s,t));
     }
 
     public int minSteps(String s, String t) {
