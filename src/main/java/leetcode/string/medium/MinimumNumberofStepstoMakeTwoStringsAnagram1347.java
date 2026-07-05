@@ -46,7 +46,7 @@ public class MinimumNumberofStepstoMakeTwoStringsAnagram1347 {
         System.out.println(minSteps(s,t));
     }
 
-    public  int minSteps(String s, String t) {
+    public static int minSteps(String s, String t) {
         int[] freq = new int[26];
 
         for(int c : s.toCharArray()){
