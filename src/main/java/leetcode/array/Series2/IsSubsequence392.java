@@ -34,12 +34,26 @@ package leetcode.array.Series2;
 //
 
 
+import java.util.Scanner;
+
 public class IsSubsequence392 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("Enter the String: ");
+        String input = sc.nextLine();
+
+        String[] parts = input.split(",");
+        String s = parts[0].split("\"")[1];
+        String t = parts[1].split("\"")[1];
+
+        System.out.println(s); // abc7
+        System.out.println(t); // ahbgdc
+
+        System.out.println(isSubsequence(s,t));
     }
 
-    public boolean isSubsequence(String s, String t) {
+    public static boolean isSubsequence(String s, String t) {
         int i = 0;
         int j = 0;
         while(i < s.length() && j < t.length()){
