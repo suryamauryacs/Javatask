@@ -63,6 +63,6 @@ public class IsSubsequence392 {
         }
 
 
-        return i == s.length();
+
     }
 }
