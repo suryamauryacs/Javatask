@@ -9,6 +9,23 @@ public class WaterBottles1518 {
 
         System.out.println("Enter the number: umBottles = 9, numExchange = 3");
         String input = sc.nextLine();
+        String[] parts = input.split(",");
+        int numBottles = Integer.parseInt(parts[0].split("=")[1].trim());
+        int numExchnage = Integer.parseInt(parts[0].split("=")[1].trim());
 
+
+
+    }
+
+    public static int numWaterBottles(int numBottles, int numExchange) {
+        int total =0;
+        int empty = 0;
+        while(numBottles >0){
+            total += numBottles;
+            empty += numBottles;
+            numBottles = empty / numExchange;
+            empty = empty % numExchange;
+        }
+        return total;
     }
 }
