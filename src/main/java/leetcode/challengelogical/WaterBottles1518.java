@@ -1,6 +1,7 @@
 package leetcode.challengelogical;
 //https://leetcode.com/problems/water-bottles/description/
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class WaterBottles1518 {
@@ -13,7 +14,8 @@ public class WaterBottles1518 {
         int numBottles = Integer.parseInt(parts[0].split("=")[1].trim());
         int numExchnage = Integer.parseInt(parts[0].split("=")[1].trim());
 
-
+        System.out.println(numWaterBottles(numBottles, numExchnage));
+        System.out.println(numWaterBottlesS(numBottles, numExchnage));
 
     }
 
@@ -28,4 +30,11 @@ public class WaterBottles1518 {
         }
         return total;
     }
+
+    public static int numWaterBottlesS(int numBottles, int numExchange)
+    {
+    return numBottles + (numBottles - 1) / (numExchange - 1);
+    }
+
+
 }
