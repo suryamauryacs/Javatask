@@ -38,9 +38,31 @@ package leetcode.Logical.EasyProblme;
 //1 <= k <= 104
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class AddtoArrayFormofInteger989 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+    }
 
+
+    public List<Integer> addToArrayForm(int[] num, int k) {
+        long number = 0;
+        for(int digit : num){
+            number = number*10+ digit;
+
+        }
+        number += k;
+
+        List<Integer> res = new ArrayList<>();
+
+        while(number > 0){
+            res.add(0, (int) (number%10));
+            number /= 10;
+        }
+
+        return res;
     }
 }
