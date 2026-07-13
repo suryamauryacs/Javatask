@@ -38,17 +38,42 @@ package leetcode.Logical.EasyProblme;
 //1 <= k <= 104
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class AddtoArrayFormofInteger989 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Array like [1,2,3]:");
+        String input = sc.nextLine();
+
+        int[] arr = strToArr(input);
+        System.out.println("Enter the K: for adding number:");
+        int k = sc.nextInt();
+
+        System.out.println(addToArrayForm(arr,k));
+
+    }
+
+    public static int[] strToArr(String s){
+        if(s == null)
+            return new int[0];
+        s = s.replaceAll("[\\[\\]<>(){}]","").trim();
+//        s = s.replace("[","").replace("]","").replace("<","").replace(">","")
+//                .replace("(","").replace(")","").replace("{","").replace("}","").trim();
+
+        if(s.isEmpty())
+            return new int[0];
+
+        return Arrays.stream(s.split(",")).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
+
     }
 
 
-    public List<Integer> addToArrayForm(int[] num, int k) {
+    public static List<Integer> addToArrayForm(int[] num, int k) {
         long number = 0;
         for(int digit : num){
             number = number*10+ digit;
