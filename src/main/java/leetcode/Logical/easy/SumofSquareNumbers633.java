@@ -9,6 +9,25 @@ public class SumofSquareNumbers633 {
         System.out.println("Enter the Number ; ");
         int n = sc.nextInt();
 
+        System.out.println(judgeSquareSum(n));
 
+
+    }
+
+    public static boolean judgeSquareSum(int c) {
+        int left = 0;
+        long right = (long)Math.sqrt(c);
+        while(left <= right){
+            long sum = left*left + right*right;
+            if(sum == c){
+                return true;
+            }else if(sum < c){
+                left++;
+            }else{
+                right--;
+            }
+        }
+
+        return false;
     }
 }
