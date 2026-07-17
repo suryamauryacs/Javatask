@@ -1,5 +1,6 @@
 package leetcode.array.Easy;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 //https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/description/
@@ -34,5 +35,21 @@ public class MaximumProductofTwoElementsinanArray1464 {
         System.out.println("Enter the Array like : [1,2,3,4]:");
         String input = sc.nextLine();
         int[] arr = strToArr(input);
+
+        System.out.println(Arrays.toString(arr));
+
+
+    }
+
+    public static int[] strToArr(String s){
+        if(s == null)
+            return new int[0];
+//        s = s.replaceAll("[\\[\\]<>(){}","");
+        s = s.replaceAll("[\\[\\]<>\\(\\){}]", "");
+        if(s.isEmpty())
+            return new int[0];
+
+        return Arrays.stream(s.split(",")).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
+
     }
 }
