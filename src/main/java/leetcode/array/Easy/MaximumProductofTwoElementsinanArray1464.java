@@ -37,8 +37,26 @@ public class MaximumProductofTwoElementsinanArray1464 {
         int[] arr = strToArr(input);
 
         System.out.println(Arrays.toString(arr));
+        System.out.println(maxProduct(arr));
 
 
+    }
+
+    public static int maxProduct(int[] nums) {
+        int smax = -1;
+        int max = -1;
+
+        for(int i = 0;i<nums.length;i++){
+            if(max < nums[i]){
+                smax = max;
+                max = nums[i];
+            }else if(smax < nums[i]){
+                smax = nums[i];
+            }
+
+
+        }
+        return (max-1)*(smax - 1);
     }
 
     public static int[] strToArr(String s){
