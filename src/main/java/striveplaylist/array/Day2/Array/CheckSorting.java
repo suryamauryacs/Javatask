@@ -11,6 +11,21 @@ public class CheckSorting {
 
         int[] arr = strToArr(input);
         System.out.println(Arrays.toString(arr));
+
+        System.out.println(checkArraySort(arr));
+    }
+
+    public static boolean checkArraySort(int[] arr){
+        int n = arr.length;
+        for(int i = 1;i<n;i++){
+            if(arr[i] > arr[i-1]){
+
+            }else{
+                return false;
+            }
+
+        }
+        return true;
     }
 
     public static int[] strToArr(String s){
