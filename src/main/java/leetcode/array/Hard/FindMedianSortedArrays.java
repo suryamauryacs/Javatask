@@ -37,7 +37,7 @@ public class FindMedianSortedArrays {
 
         System.out.println(Arrays.toString(arr1));
         System.out.println(Arrays.toString(arr2));
-//        System.out.println(findMedianSortedArrays(arr1, arr2));
+        System.out.println(findMedianSortedArrays(arr1, arr2));
 
     }
 
@@ -51,7 +51,28 @@ public class FindMedianSortedArrays {
         return Arrays.stream(newStr.split(",")).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
     }
 
-//    public static double findMedianSortedArrays(arr1, arr2){
-//        return null;
-//    }
+    public static double findMedianSortedArrays(int[] arr1, int[] arr2){
+        int total = arr1.length + arr2.length;
+        int i = 0;
+        int j  = 0;
+        int curr = 0;
+        int prev = 0;
+        int mid1 = (total-1)/2;
+        int mid2 = (total)/2;
+
+        for(int count= 0;count<=mid2;count++){
+            prev = curr;
+            if(i < arr1.length && ( j< arr2.length || arr1[i] < arr2[j])){
+                curr = arr1[i++];
+            }else{
+                curr = arr2[j++];
+            }
+        }
+
+        if(total % 2 == 0){
+            return (prev+curr)/2.0;
+        }
+
+        return curr;
+    }
 }
