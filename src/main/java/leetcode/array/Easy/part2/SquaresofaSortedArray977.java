@@ -40,7 +40,7 @@ public class SquaresofaSortedArray977 {
 
     }
     //Two pointer approach
-    public int[] sortedSquaresTwoPointer(int[] nums) {
+    public static int[] sortedSquaresTwoPointer(int[] nums) {
         int[] ans = new int[nums.length];
         int start = 0;
         int end = nums.length-1;
