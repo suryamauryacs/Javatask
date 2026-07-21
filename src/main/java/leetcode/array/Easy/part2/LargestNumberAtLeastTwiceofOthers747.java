@@ -13,4 +13,18 @@ public class LargestNumberAtLeastTwiceofOthers747 {
         System.out.println(Arrays.toString(productExceptSelf(arr)));
 
     }
+
+
+    public static int[] strToArr(String s){
+        if(s == null)
+            return new int[0];
+        s = s.replaceAll("[\\[\\]<>\\(\\)\\{\\}]","").trim();
+
+        if(s.isEmpty())
+            return new int[0];
+
+        return Arrays.stream(s.split(",")).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
+    }
+
+
 }
