@@ -34,9 +34,24 @@ public class ncreasingTripletSubsequence334 {
         System.out.println("Enter the Array like [1,2,3]");
         String input = sc.nextLine();
         int[] arr = strToArr(input);
-        System.out.println(Arrays.toString(productExceptSelf(arr)));
+        System.out.println(increasingTriplet(arr));
     }
 
+    public static boolean increasingTriplet(int[] nums) {
+        int fn = Integer.MAX_VALUE;
+        int sn = Integer.MAX_VALUE;
+
+        for(int i = 0;i<nums.length;i++){
+            if(fn >= nums[i]){
+                fn = nums[i];
+            }else if(sn >= nums[i]){
+                sn = nums[i];
+            }else{
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static int[] strToArr(String s){
         if(s == null)
