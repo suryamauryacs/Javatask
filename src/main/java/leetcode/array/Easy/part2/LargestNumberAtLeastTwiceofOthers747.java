@@ -37,8 +37,29 @@ public class LargestNumberAtLeastTwiceofOthers747 {
         System.out.println("Enter the Array like [1,2,3]");
         String input = sc.nextLine();
         int[] arr = strToArr(input);
-        System.out.println(Arrays.toString(productExceptSelf(arr)));
+        System.out.println(dominantIndex(arr));
 
+    }
+
+    public static int dominantIndex(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        int smax = Integer.MIN_VALUE;
+        int id = 0;
+        for(int i = 0;i<nums.length;i++){
+            if(max < nums[i]){
+                smax = max;
+                max = nums[i];
+                id = i;
+            }else if(nums[i] < max && nums[i] > smax){
+                smax = nums[i];
+            }
+        }
+
+        if(max >= 2*smax){
+            return id;
+        }else{
+            return -1;
+        }
     }
 
 
