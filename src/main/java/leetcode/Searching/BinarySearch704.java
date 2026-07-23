@@ -26,6 +26,7 @@ package leetcode.Searching;
 //All the integers in nums are unique.
 //nums is sorted in ascending order.
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BinarySearch704 {
@@ -38,5 +39,15 @@ public class BinarySearch704 {
         System.out.println(findLucky(arr));
     }
 
+    public static int[] strToArr(String s){
+        if(s == null)
+            return new int[0];
+        s = s.replaceAll("[\\[\\]<>\\(\\)\\{\\}]","").trim();
+
+        if(s.isEmpty())
+            return new int[0];
+
+        return Arrays.stream(s.split(",")).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
+    }
 
 }
