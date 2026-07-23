@@ -36,7 +36,9 @@ public class BinarySearch704 {
         System.out.println("Enter the Array like [1,2,3]");
         String input = sc.nextLine();
         int[] arr = strToArr(input);
-        System.out.println(findLucky(arr));
+        System.out.println("Enter the target:");
+        int target = sc.nextInt();
+        System.out.println(search(arr, target));
     }
 
     public static int[] strToArr(String s){
@@ -50,4 +52,23 @@ public class BinarySearch704 {
         return Arrays.stream(s.split(",")).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
     }
 
+
+    public static int search(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length-1;
+        while(start <= end){
+            int mid = (start + end)/2;
+            if(nums[mid] == target){
+                return mid;
+            }
+            else if(target > nums[mid]){
+                start = mid +1;
+            }else{
+                end = mid-1;
+            }
+        }
+
+        return -1;
+
+    }
 }
