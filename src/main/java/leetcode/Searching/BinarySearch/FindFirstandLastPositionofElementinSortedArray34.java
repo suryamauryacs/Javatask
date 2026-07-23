@@ -1,5 +1,6 @@
 package leetcode.Searching.BinarySearch;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 // https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
@@ -26,14 +27,33 @@ import java.util.Scanner;
 //
 
 public class FindFirstandLastPositionofElementinSortedArray34 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter input:");
+            String input = sc.nextLine();
 
-        System.out.println("Enter the Array like [1,2,3]");
-        String input = sc.nextLine();
-        int[] arr = strToArr(input);
-        System.out.println("Enter the target:");
-        int target = sc.nextInt();
-        System.out.println(search(arr, target));
-    }
+            String[] parts = input.split(",\\s*target\\s*=\\s*");
+            int[] nums = strToArr(parts[0]
+                    .replace("nums", "")
+                    .replace("=", "")
+                    .trim());
+
+            int target = Integer.parseInt(parts[1].trim());
+
+            System.out.println("Array = " + Arrays.toString(nums));
+            System.out.println("Target = " + target);
+        }
+
+        public static int[] strToArr(String s) {
+            if (s == null)
+                return new int[0];
+            s = s.replaceAll("[\\[\\](){}]", "").trim();
+            if (s.isEmpty())
+                return new int[0];
+            return Arrays.stream(s.split(","))
+                    .map(String::trim)
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+        }
+
 }
