@@ -30,9 +30,31 @@ package leetcode.challengelogical;
 //n == height.length
 //2 <= n <= 105
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class ContainerWithMostWater11 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Array:");
+        String input = sc.nextLine();
 
+        int[] arr = strToArr(input);
+
+
+        System.out.println(maxArea(arr));
+    }
+
+    public static int[] strToArr(String s){
+        if(s == null)
+            return new int[0];
+
+        s = s.replaceAll("[\\[\\]<>(){}]","").trim();
+
+        if(s.isEmpty())
+            return new int[0];
+
+        return Arrays.stream(s.split(",")).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
     }
 
     public static int maxArea(int[] height) {
