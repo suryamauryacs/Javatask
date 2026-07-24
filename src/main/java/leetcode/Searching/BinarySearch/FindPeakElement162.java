@@ -29,11 +29,20 @@ package leetcode.Searching.BinarySearch;
 //nums[i] != nums[i + 1] for all valid i.
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class FindPeakElement162 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Array ");
+        String input = sc.nextLine();
+
+        String s = input.replaceAll("[\\[\\]<>(){}]","").trim();
+
+        int[] arr =  Arrays.stream(s.split(",")).map(String :: trim).filter(st -> ! s.isEmpty()).mapToInt(Integer :: parseInt).toArray();
+
+        System.out.println(Arrays.toString(arr));
 
     }
 }
