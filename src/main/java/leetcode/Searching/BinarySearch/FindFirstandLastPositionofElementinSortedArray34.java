@@ -44,6 +44,26 @@ public class FindFirstandLastPositionofElementinSortedArray34 {
             System.out.println("Target = " + target);
 
             System.out.println(Arrays.toString(searchRange(nums, target)));
+
+
+//            alternate method
+
+//            int start = input.indexOf('[');
+//            int end = input.indexOf(']');
+//
+//            String arrString = input.substring(start + 1, end);
+//
+//            int[] nums = Arrays.stream(arrString.split(","))
+//                    .map(String::trim)
+//                    .mapToInt(Integer::parseInt)
+//                    .toArray();
+//
+//            int target = Integer.parseInt(
+//                    input.substring(input.indexOf("target") + 8).trim()
+//            );
+//
+//            System.out.println(Arrays.toString(nums));
+//            System.out.println(target);
         }
 
         public static int[] strToArr(String s) {

@@ -36,8 +36,9 @@ import java.util.Scanner;
 public class FindMinimuminRotatedSortedArray153 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the INput:");
+        System.out.println("Enter the Input:");
         String input = sc.nextLine();
+
 //
 //        String[] parts = input.split("\\*s*target*s\\=*s");
 //
@@ -45,25 +46,50 @@ public class FindMinimuminRotatedSortedArray153 {
 //
 //        int target = Integer.parseInt(parts[1].trim());
 
+        int[] arr = strTArr(input);
+
+        System.out.println(findMin(arr));
 
 
 
-        int start = input.indexOf('[');
-        int end = input.indexOf(']');
 
-        String arrString = input.substring(start + 1, end);
+    }
 
-        int[] nums = Arrays.stream(arrString.split(","))
-                .map(String::trim)
-                .mapToInt(Integer::parseInt)
-                .toArray();
+    public static int findMin(int[] nums) {
+        int start = 0;
+        int end = nums.length-1;
 
-        int target = Integer.parseInt(
-                input.substring(input.indexOf("target") + 8).trim()
-        );
+        if(nums[start] <= nums[end]) {
+            return nums[start];
+        }
 
-        System.out.println(Arrays.toString(nums));
-        System.out.println(target);
+        while(start <= end){
+            int mid = (start + end)/2;
+
+            if(mid != 0 && nums[mid-1] > nums[mid]){
+                return nums[mid];
+            } else if(mid != nums.length -1 &&  nums[mid] > nums[mid+1]){
+                return nums[mid+1];
+            }else if(nums[start] <= nums[mid]){//left part is sorted;
+                start = mid + 1;
+            }else{
+                end = mid -1;
+            }
+        }
+        return -1;
+    }
+
+    public static int[] strToArr(String s){
+        if(s == null)
+            return new int[0];
+
+        s = s.replaceAll("[\\[\\](){}<>]","").trim();
+
+        if(s.isEmpty())
+            return new int[0];
+
+        return Arrays.stream(s.split(",")).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
+
     }
 
     public static int[] strTArr(String s){
