@@ -40,9 +40,10 @@ public class SingleElementinaSortedArray540 {
         int[] arr = Arrays.stream(newString.split(",")).filter(st -> ! st.isEmpty()).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
 
         System.out.println(Arrays.toString(arr));
+        System.out.println(singleNonDuplicate(arr));
     }
 
-    public int singleNonDuplicate(int[] nums) {
+    public static int singleNonDuplicate(int[] nums) {
         if(nums.length == 0){
             return 0;
         }else if(nums.length == 1){
