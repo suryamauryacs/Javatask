@@ -44,6 +44,8 @@ public class SearchInsertPosition35 {
 
         int[] arr = Arrays.stream(newStr.split(",")).map(String :: trim).mapToInt((Integer :: parseInt)).toArray();
 
+        int target = Integer.parseInt(input.substring(input.indexOf("target") + 8).trim());
+        System.out.println(searchInsert(arr, target));
 
 
     }
