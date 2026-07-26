@@ -44,9 +44,36 @@ public class SortColors75 {
 
         System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.toString(sortColors(arr)));
+        System.out.println(Arrays.toString(sortColorsBrute(arr)));
 
     }
 
+    //brute force
+//   TC:-  O(n log n) SC :- O(n)
+
+    public static int[] sortColorsBrute(int[] nums) {
+        Arrays.sort(nums);
+        return nums;
+    }
+
+//2. Counting Sort (Two Pass)
+//Since values are only 0, 1, 2, count occurrences and overwrite.
+
+    public static void sortColorscount(int[] nums) {
+        int[] count = new int[3];
+
+        for (int num : nums) {
+            count[num]++;
+        }
+
+        int index = 0;
+
+        for (int color = 0; color < 3; color++) {
+            while (count[color]-- > 0) {
+                nums[index++] = color;
+            }
+        }
+    }
 
     public static void swap(int[] nums , int i , int j){
         int temp = nums[i];
@@ -54,6 +81,9 @@ public class SortColors75 {
         nums[j] = temp;
 
     }
+
+//    4. Dutch National Flag Algorithm (Best Solution)
+//    Dutch National Flag   O(n)    O   (1) 1 ✅
     public static int[] sortColors(int[] nums) {
         int low = 0, mid = 0, high = nums.length-1;
 
