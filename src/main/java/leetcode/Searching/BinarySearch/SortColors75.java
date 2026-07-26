@@ -1,10 +1,21 @@
 package leetcode.Searching.BinarySearch;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SortColors75 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Arrays like num = [1,2,3]:");
+        String input = sc.nextLine();
+
+        int[] arr = Arrays.stream(
+                        input.substring(input.indexOf('[') + 1, input.indexOf(']'))
+                                .split(","))
+                .map(String::trim)
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
 
     }
 
