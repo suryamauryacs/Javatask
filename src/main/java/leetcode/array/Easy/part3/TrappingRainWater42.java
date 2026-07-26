@@ -28,6 +28,7 @@ public class TrappingRainWater42 {
                 .filter(s -> !s.isEmpty()).map(String :: trim).mapToInt(Integer :: parseInt).toArray()).toArray();
 
         System.out.println(Arrays.toString(arr));
+        System.out.println(trap(arr));
 
 
     }
