@@ -1,5 +1,6 @@
 package leetcode.Searching.BinarySearch;
 
+import java.util.Arrays;
 import java.util.Scanner;
 //Given an array nums sorted in non-decreasing order, return the maximum between the number of positive integers and the number of negative integers.
 //
@@ -32,6 +33,12 @@ public class MaximumCountofPositiveIntegerandNegativeInteger2529 {
         String input = sc.nextLine();
 
 
+
+        int[] arr = Arrays.stream(input.substring(input.indexOf("[") + 1, input.indexOf("]")).split(","))
+                .filter(s -> !s.isEmpty()).map(String::trim).mapToInt(Integer::parseInt).toArray();
+
+
+        System.out.println(Arrays.toString(arr));
 
 
     }
