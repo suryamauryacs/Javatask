@@ -26,7 +26,9 @@ package leetcode.array.Easy.part3;
 //Explanation: After sorting, nums is [1,2,2,3,5].
 //The index where nums[i] == 5 is 4.
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class FindTargetIndicesAfterSortingArray2089 {
@@ -43,6 +45,31 @@ public class FindTargetIndicesAfterSortingArray2089 {
 
         int target = Integer.parseInt(input.substring(input.indexOf("target")+8).trim());
         System.out.println(target);
+
+        System.out.println(targetIndices(arr, target));
+
+    }
+
+    public static List<Integer> targetIndices(int[] nums, int target) {
+        int num = 0;
+        int tcount = 0;
+
+        for(int ele : nums){
+            if(ele == target){
+                tcount++;
+            }else if(ele < target){
+                num++;
+            }
+        }
+
+        List<Integer> ans = new ArrayList<>();
+        while(tcount > 0){
+            ans.add(num);
+            num++;
+            tcount--;
+        }
+
+        return ans;
 
     }
 }
