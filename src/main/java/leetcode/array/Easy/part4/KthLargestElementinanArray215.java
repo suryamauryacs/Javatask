@@ -1,6 +1,7 @@
 package leetcode.array.Easy.part4;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 //Given an integer array nums and an integer k, return the kth largest element in the array.
 //
@@ -36,5 +37,23 @@ public class KthLargestElementinanArray215 {
 
         int k = Integer.parseInt(input.substring("k")+3);
 
+        System.out.println(findKthLargest(arr, k));
+
+    }
+
+    public static int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> pq  = new PriorityQueue<>();
+
+        for(int i = 0;i<nums.length;i++){
+
+            if(pq.size() < k){
+                pq.add(nums[i]);
+            }else if(pq.peek() < nums[i]){
+                pq.remove();
+                pq.add(nums[i]);
+            }
+        }
+
+        return pq.peek();
     }
 }
