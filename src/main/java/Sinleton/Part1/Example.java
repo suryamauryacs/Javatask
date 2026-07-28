@@ -1,5 +1,7 @@
 package Sinleton.Part1;
 
+import com.designpattern.day1.Samosa;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -19,11 +21,17 @@ public class Example {
         //2. solution 1 -> if object is there ==> throw exception from inside constructor
         //  ii) use enum
 
+        /*
+
+          2. Deserialization:
+            solution : override readresolve method
+         */
+
 //        Samosa s1 = Sinleton.Part1.Samosa.getSamosa();
 
-        Samosa s1 = Samosa.INSTANCE;
-        System.out.println(s1.hashCode());
-        s1.test();
+//        Samosa s1 = Samosa.INSTANCE;
+//        System.out.println(s1.hashCode());
+//        s1.test();
 
         Constructor<Samosa> constructor = Samosa.class.getDeclaredConstructor();
         constructor.setAccessible(true);

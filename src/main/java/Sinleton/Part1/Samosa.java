@@ -1,10 +1,18 @@
 package Sinleton.Part1;
 
-public enum Samosa {
+//public enum Samosa {
+//
+//    INSTANCE;
+//
+//    public void test(){
+//        System.out.println("test method");
+//    }
 
-    INSTANCE;
+//}
 
 
+// ************************
+//    public class Samosa {
 //    private static Samosa samosa;
 //    //contructor
 //    private Samosa(){
@@ -29,17 +37,19 @@ public enum Samosa {
 //        return samosa;
 //    }
 
-    public void test(){
-        System.out.println("test method");
-    }
+//    public void test(){
+//        System.out.println("test method");
+//    }
+//
+//}
 
-}
 
-
-//1.cosntructor private
+//1.constructor private
 //2. Object create with the help of method
-//3. create feild to store object is private
+//3. create field to store object is private
 
+
+import com.designpattern.day1.Samosa;
 
 
 

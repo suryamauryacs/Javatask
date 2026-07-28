@@ -43,7 +43,6 @@ public class Samosa implements Serializable, Cloneable {
             synchronized (Samosa.class){
                 if(samosa == null){
                     samosa = new Samosa();
-
                 }
             }
         }
