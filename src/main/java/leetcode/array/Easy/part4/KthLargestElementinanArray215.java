@@ -1,5 +1,6 @@
 package leetcode.array.Easy.part4;
 
+import java.util.Arrays;
 import java.util.Scanner;
 //Given an integer array nums and an integer k, return the kth largest element in the array.
 //
@@ -30,6 +31,10 @@ public class KthLargestElementinanArray215 {
         System.out.println("Enter the Array and kth element : ");
         String input = sc.nextLine();
 
+        int[] arr = Arrays.stream(Arrays.stream(input.substring(input.indexOf("[") + 1, input.indexOf("]")). split(","))
+                .filter(st -> !st.isEmpty()).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
+
+        int k = Integer.parseInt(input.substring("k")+3);
 
     }
 }
