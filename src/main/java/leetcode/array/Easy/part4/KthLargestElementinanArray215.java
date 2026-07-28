@@ -32,11 +32,15 @@ public class KthLargestElementinanArray215 {
         System.out.println("Enter the Array and kth element : ");
         String input = sc.nextLine();
 
-        int[] arr = Arrays.stream(Arrays.stream(input.substring(input.indexOf("[") + 1, input.indexOf("]")). split(","))
-                .filter(st -> !st.isEmpty()).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
+//        int[] arr = Arrays.stream(input.substring(input.indexOf("[") + 1, input.indexOf("]")). split(",")
+//                .filter(st -> !st.isEmpty()).map(String :: trim).mapToInt(Integer :: parseInt).toArray();
 
-        int k = Integer.parseInt(input.substring("k")+3);
+        int[] arr = Arrays.stream(input.substring(input.indexOf("[") + 1, input.indexOf("]")).split(","))
+                .filter(s -> !s.isEmpty()).map(String::trim).mapToInt(Integer::parseInt).toArray();
 
+
+        int k = Integer.parseInt(input.substring(input.indexOf("k")+4));
+        System.out.println(Arrays.toString(arr));
         System.out.println(findKthLargest(arr, k));
 
     }
