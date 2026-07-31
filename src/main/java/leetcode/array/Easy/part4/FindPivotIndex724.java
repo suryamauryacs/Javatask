@@ -35,7 +35,48 @@ package leetcode.array.Easy.part4;
 //Right sum = nums[1] + nums[2] = 1 + -1 = 0
 
 
-
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class FindPivotIndex724 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Array: ");
+
+        String input = sc.nextLine();
+
+        int[] arr = Arrays.stream(input.substring(input.indexOf("[") + 1, input.indexOf("]")).split(","))
+                .filter(s -> !s.isEmpty()).map(String::trim).mapToInt(Integer::parseInt).toArray();
+
+
+
+        System.out.println(Arrays.toString(arr));
+        System.out.println(pivotIndex(arr));
+    }
+
+
+    public static int pivotIndex(int[] nums) {
+        int rsum = 0;
+        for(int ele : nums){
+            rsum += ele;
+        }
+
+        int lsum = 0;
+
+        for(int i = 0;i<nums.length; i++){
+            rsum -= nums[i];
+
+            if(rsum == lsum){
+                return i;
+            }
+
+            lsum += nums[i];
+        }
+
+        return -1;
+    }
+
+
+
 }
