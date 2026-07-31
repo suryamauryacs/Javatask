@@ -38,11 +38,34 @@ public class BoatstoSavePeople881 {
         int[] arr = Arrays.stream(input.substring(input.indexOf("[") + 1, input.indexOf("]")).split(","))
                 .filter(s -> !s.isEmpty()).map(String::trim).mapToInt(Integer::parseInt).toArray();
 
+        int limit = Integer.parseInt(input.substring(input.indexOf("limit")+8));
 
-
+        System.out.println(limit);
         System.out.println(Arrays.toString(arr));
-        System.out.println(pivotIndex(arr));
+        System.out.println(numRescueBoats(arr, limit));
     }
 
+    public static int numRescueBoats(int[] people, int limit) {
+        Arrays.sort(people);
 
+        int start = 0;
+        int end = people.length - 1;
+
+        int count = 0;
+
+
+
+        while(start <= end){
+            if(people[start] + people[end] <= limit){
+                start++;
+                end--;
+            }else{
+                end--;
+            }
+
+            count++;
+        }
+
+        return count++;
+    }
 }
