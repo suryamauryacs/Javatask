@@ -3,30 +3,52 @@ package leetcode.string.medium;
 import java.util.Scanner;
 //https://leetcode.com/problems/reverse-words-in-a-string/description/
 
-//Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
+//Given an input string s, reverse the order of the words.
+//
+//A word is defined as a sequence of non-space characters. The words in s will be separated by at least one space.
+//
+//Return a string of the words in reverse order concatenated by a single space.
+//
+//Note that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
 //
 //
 //
 //Example 1:
 //
-//Input: s = "bcabc"
-//Output: "abc"
+//Input: s = "the sky is blue"
+//Output: "blue is sky the"
 //Example 2:
 //
-//Input: s = "cbacdcbc"
-//Output: "acdb"
+//Input: s = "  hello world  "
+//Output: "world hello"
+//Explanation: Your reversed string should not contain leading or trailing spaces.
+//Example 3:
 //
-//
-//Constraints:
-//
-//1 <= s.length <= 104
-//s consists of lowercase English letters.
-
+//Input: s = "a good   example"
+//Output: "example good a"
+//Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
 
 public class ReverseWordsinaString151 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
 
 
+
+    }
+
+    public static String reverseWords(String s) {
+        String[] arr = s.split("\\s+"); //split on the basic of spaces
+
+        StringBuilder sb =new StringBuilder("");
+
+        for(int i = arr.length - 1; i>= 0 ;i--){
+            sb.append(arr[i] + " ");
+        }
+
+        //trim function ---> remove trailing and leading spaces
+
+        String ans = sb.toString();
+        return ans.trim();
     }
 }
