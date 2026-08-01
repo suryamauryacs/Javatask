@@ -31,9 +31,9 @@ import java.util.Scanner;
 public class ReverseWordsinaString151 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
-
-
+        String s = sc.nextLine().substring(5).replace("\"","");
+        System.out.println(s);
+        System.out.println(reverseWords(s));
 
     }
 
