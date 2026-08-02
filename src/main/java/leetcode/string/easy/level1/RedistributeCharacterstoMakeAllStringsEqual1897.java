@@ -1,8 +1,5 @@
 package leetcode.string.easy.level1;
-
-
-
-
+//https://leetcode.com/problems/redistribute-characters-to-make-all-strings-equal/description/
 
 
 //You are given an array of strings words (0-indexed).
