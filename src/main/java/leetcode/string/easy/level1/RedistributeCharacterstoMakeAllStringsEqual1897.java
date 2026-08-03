@@ -23,13 +23,27 @@ package leetcode.string.easy.level1;
 //Output: false
 //Explanation: It is impossible to make all the strings equal using the operation.
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class RedistributeCharacterstoMakeAllStringsEqual1897 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the words");
+        String input = sc.nextLine();
+
+        String[] words = Arrays.stream(input.substring(input.indexOf("[") + 1, input.indexOf("]")).split(","))
+                .map(String::trim)
+                .map(s -> s.replace("\"", ""))
+                .toArray(String[]::new);
+        System.out.println("Words: " + Arrays.toString(words));
+
+        System.out.println(makeEqual(words));
 
     }
 
 
-    public boolean makeEqual(String[] words) {
+    public static boolean makeEqual(String[] words) {
         int[] fre = new int[26];
 
         for(int i = 0;i<words.length;i++){
