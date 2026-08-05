@@ -36,9 +36,11 @@ public class ValidAnagram242 {
         System.out.println("s = " + s);
         System.out.println("t = " + t);
 
+        System.out.println(isAnagram(s, t));
+
     }
 
-    public boolean isAnagram(String s, String t) {
+    public static boolean isAnagram(String s, String t) {
         HashMap<Character, Integer> hm = new HashMap<>();
 
         for(int i = 0;i<s.length();i++){
