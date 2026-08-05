@@ -1,6 +1,7 @@
 package leetcode.Stack;
 
 import java.util.Scanner;
+import java.util.Stack;
 //  https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/description/
 
 //A parentheses string is valid if and only if:
@@ -37,8 +38,25 @@ public class MinimumAddtoMakeParenthesesValid921 {
         );
         System.out.println(s);
 
-        System.out.println(isValid(s));
+        System.out.println(minAddToMakeValid(s));
     }
 
+    public static int minAddToMakeValid(String s) {
+        Stack<Character> st = new Stack<>();
+        int count = 0;
+        for(int i = 0;i<s.length();i++){
+            char ch = s.charAt(i);
+
+            if(ch == '('){
+                st.push(ch);
+            }else if(st.size() > 0 && st.peek() == '('){
+                st.pop();
+            }else{
+                count += 1;
+            }
+        }
+
+        return st.size() + count;
+    }
 
 }
