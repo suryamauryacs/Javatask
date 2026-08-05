@@ -12,7 +12,7 @@ public class VowelFreq {
         System.out.println("Enter the string:");
         String input = sc.nextLine();
 
-        Map<Character, Integer> res =countFreqVowel(input);
+        Map<Character, Integer> res = countFreqVowel(input);
 
         res.forEach((k, v) -> System.out.println(k + " = " + v));
 
