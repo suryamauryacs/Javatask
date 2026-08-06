@@ -31,6 +31,7 @@ package leetcode.array.matrix;
 //-104 <= matrix[i][j], target <= 104
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Searcha2DMatrix74 {
@@ -39,9 +40,41 @@ public class Searcha2DMatrix74 {
         System.out.println("Enter the Array of Matrix: ");
         String input = sc.nextLine();
 
+//                String input = "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3";
+
+                // Split matrix and target
+                String[] parts = input.split(", target = ");
+
+                String matrixStr = parts[0].replace("matrix = ", "");
+                int target = Integer.parseInt(parts[1]);
+
+                // Convert matrix string to int[][]
+                matrixStr = matrixStr.substring(2, matrixStr.length() - 2);
+                String[] rows = matrixStr.split("\\],\\[");
+
+                int[][] matrix = new int[rows.length][];
+
+                for (int i = 0; i < rows.length; i++) {
+                    String[] nums = rows[i].split(",");
+                    matrix[i] = new int[nums.length];
+
+                    for (int j = 0; j < nums.length; j++) {
+                        matrix[i][j] = Integer.parseInt(nums[j]);
+                    }
+                }
+
+                // Print matrix
+                System.out.println("Matrix:");
+                for (int[] row : matrix) {
+                    System.out.println(Arrays.toString(row));
+                }
+                System.out.println("Target = " + target);
+
+        System.out.println(searchMatrix(matrix, target));
     }
 
-    public boolean searchMatrix(int[][] matrix, int target) {
+
+    public static boolean searchMatrix(int[][] matrix, int target) {
 
         int m = matrix.length;
         int n = matrix[0].length;
