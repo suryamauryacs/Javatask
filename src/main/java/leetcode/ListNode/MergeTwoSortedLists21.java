@@ -1,15 +1,12 @@
 package leetcode.ListNode;
 
-static class ListNode {
+class ListNode {
     int val;
     ListNode next;
-
     ListNode() {}
-
     ListNode(int val) {
         this.val = val;
     }
-
     ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
@@ -20,11 +17,8 @@ static class ListNode {
 public class MergeTwoSortedLists21 {
 
         public static void main(String[] args) {
-
             String input = "list1 = [1,2,4], list2 = [1,3,4]";
-
             String[] parts = input.split(", list2 = ");
-
             String list1Str = parts[0].replace("list1 = ", "");
             String list2Str = parts[1];
 
@@ -36,22 +30,16 @@ public class MergeTwoSortedLists21 {
         }
 
         static ListNode buildList(String str) {
-
             str = str.substring(1, str.length() - 1);
-
             if (str.length() == 0)
                 return null;
-
             String[] nums = str.split(",");
-
             ListNode dummy = new ListNode(-1);
             ListNode curr = dummy;
-
             for (String num : nums) {
                 curr.next = new ListNode(Integer.parseInt(num.trim()));
                 curr = curr.next;
             }
-
             return dummy.next;
         }
 
@@ -61,7 +49,7 @@ public class MergeTwoSortedLists21 {
                 head = head.next;
             }
         }
-    }
+
 
 
 /**
@@ -99,9 +87,7 @@ public class MergeTwoSortedLists21 {
         }else{
             dummy.next = ptr1;
         }
-
         return ans.next;
     }
-
 
 }
